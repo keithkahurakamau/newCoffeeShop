@@ -17,13 +17,13 @@ class TestOrder:
         customer = Customer("John")
         coffee = Coffee("Latte")
 
-        with pytest.raises(ValueError):
+        with pytest.raises(Exception):
             Order(customer, coffee, 0.5)  # too low
 
-        with pytest.raises(ValueError):
+        with pytest.raises(Exception):
             Order(customer, coffee, 15.0)  # too high
 
-        with pytest.raises(ValueError):
+        with pytest.raises(Exception):
             Order(customer, coffee, "4.5")  # not a float
 
     def test_order_price_immutable(self):
@@ -31,7 +31,7 @@ class TestOrder:
         coffee = Coffee("Latte")
         order = Order(customer, coffee, 4.5)
 
-        with pytest.raises(ValueError):
+        with pytest.raises(Exception):
             order.price = 5.0
 
     def test_order_customer_validation(self):

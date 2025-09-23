@@ -96,11 +96,11 @@ class Order:
             order.price = 5.0  # ValueError!
         """
         if hasattr(self, '_price'):
-            raise ValueError("Order price is immutable and cannot be changed")
+            raise Exception("Order price is immutable and cannot be changed")
         if not isinstance(value, float):
-            raise ValueError("Price must be a float")
+            raise Exception("Price must be a float")
         if not 1.0 <= value <= 10.0:
-            raise ValueError("Price must be between 1.0 and 10.0")
+            raise Exception("Price must be between 1.0 and 10.0")
         self._price = value
 
     @property

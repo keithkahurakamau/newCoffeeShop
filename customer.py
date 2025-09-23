@@ -71,10 +71,18 @@ class Customer:
             customer.name = "Jane"  # Changes name to "Jane"
         """
         if not isinstance(value, str):
-            raise ValueError("Name must be a string")
+            raise Exception("Name must be a string")
         if not 1 <= len(value) <= 15:
-            raise ValueError("Name must be between 1 and 15 characters")
+            raise Exception("Name must be between 1 and 15 characters")
         self._name = value
+        
+        if value is None or value.strip() == "":
+            raise Exception("Name cannot be empty or null")
+        if not value.strip():
+            raise Exception("Name cannot be empty or just whitespace")
+        if value.isdigit():
+            raise Exception("Name cannot be purely numeric")
+        
 
     def orders(self):
         """

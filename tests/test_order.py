@@ -42,4 +42,4 @@ class TestOrder:
     def test_order_coffee_validation(self):
         customer = Customer("John")
         with pytest.raises(ValueError):
-            Order(customer, "Latte", 4.5)  # not a Coffee instance
+            Order(customer, "Latte", 4.5)  # not at all a Coffee instance
